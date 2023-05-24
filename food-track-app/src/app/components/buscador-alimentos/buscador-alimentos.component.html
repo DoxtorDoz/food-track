@@ -1,0 +1,14 @@
+<h2>Lista de Productos</h2>
+
+<div class="product-container">
+  <input type="text" (input)="onSearchInput($event)">
+
+  <ul>
+    <li *ngFor="let product of filteredProducts | filter: searchTerm; let even = even" [ngClass]="{'even': even, 'odd': !even}">
+      <div class="producto">
+        <p>Nombre: {{ product.product_name }}</p>
+        <p>Marca: {{ product.brands }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

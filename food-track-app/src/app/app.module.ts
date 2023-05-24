@@ -10,6 +10,10 @@ import { BloqueCenaComponent } from './components/bloque-cena/bloque-cena.compon
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './components/main/main.component';
 import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BuscadorAlimentosComponent } from './components/buscador-alimentos/buscador-alimentos.component';
+import { FilterPipe } from './components/buscador-alimentos/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -19,11 +23,14 @@ import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.
     BloqueMeriendaComponent,
     BloqueCenaComponent,
     MainComponent,
-    MenuVerticalComponent
+    MenuVerticalComponent,
+    BuscadorAlimentosComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
