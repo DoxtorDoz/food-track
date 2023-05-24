@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppComponent } from './app.component';
 import { BloqueDesayunoComponent } from './components/bloque-desayuno/bloque-desayuno.component';
 import { BloqueComidaComponent } from './components/bloque-comida/bloque-comida.component';
@@ -8,6 +9,7 @@ import { BloqueMeriendaComponent } from './components/bloque-merienda/bloque-mer
 import { BloqueCenaComponent } from './components/bloque-cena/bloque-cena.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './components/main/main.component';
+import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { MainComponent } from './components/main/main.component';
     BloqueComidaComponent,
     BloqueMeriendaComponent,
     BloqueCenaComponent,
-    MainComponent
+    MainComponent,
+    MenuVerticalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,12 @@
-<h1>{{title}}</h1>
-<div class="contenido">
-  <div class="grid">
-    <a routerLink="/desayuno" style="view-transition-name: one;"></a>
-    <a routerLink="/comida" style="view-transition-name: two;"></a>
-    <a routerLink="/merienda" style="view-transition-name: three;"></a>
-    <a routerLink="/cena" style="view-transition-name: four;"></a>
+<!--div class="container"-->
+  <!--app-menu-vertical></app-menu-vertical-->
+  <div class="contenido">
+    <div class="grid">
+      <a routerLink="/desayuno" class="desayuno">Desayuno</a>
+      <a routerLink="/comida" class="comida">Comida</a>
+      <a routerLink="/merienda" class="merienda">Merienda</a>
+      <a routerLink="/cena" class="cena">Cena</a>
+    </div>
+    <router-outlet></router-outlet>
   </div>
-</div>
+<!--/div-->
