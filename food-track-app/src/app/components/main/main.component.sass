@@ -4,7 +4,7 @@
   display: grid
   place-items: center
   font-family: system-ui
-  background-color: #4d22b3
+  //background-color: #4d22b3
 
   .grid
     display: grid
@@ -12,24 +12,32 @@
     gap: 1rem
 
     & > a
-      width: 100px
-      height: 100px
+      width: 25vw
+      height: 40vh
 
   .grid :nth-child(1),
   .contenido#desayuno div
     background: yellow
+    display: grid
+    place-items: center
 
   .grid :nth-child(2),
   .contenido#comida div
     background: red
+    display: grid
+    place-items: center
 
   .grid :nth-child(3),
   .contenido#merienda div
     background: orange
+    display: grid
+    place-items: center
 
   .grid :nth-child(4),
   .contenido#cena div
     background: blue
+    display: grid
+    place-items: center
 
   [id] > div
     width: 80vw
@@ -58,3 +66,6 @@
 .contenido
   flex-grow: 1
   padding: 20px
+
+.classic-gradient
+  background-image: linear-gradient(to top right, #fff 0%, #000 0% 20%, #fff 0% 40%, #000 0% 60%, #fff 0% 80%, #000 0% 100%)
