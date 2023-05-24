@@ -7,6 +7,7 @@ import { BloqueComidaComponent } from './components/bloque-comida/bloque-comida.
 import { BloqueMeriendaComponent } from './components/bloque-merienda/bloque-merienda.component';
 import { BloqueCenaComponent } from './components/bloque-cena/bloque-cena.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
     BloqueDesayunoComponent,
     BloqueComidaComponent,
     BloqueMeriendaComponent,
-    BloqueCenaComponent
+    BloqueCenaComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
