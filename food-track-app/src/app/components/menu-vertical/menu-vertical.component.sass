@@ -1,16 +1,25 @@
 .menu
   display: flex
   flex-direction: column
-  background-color: #f2f2f2
+  background-color: rgb(144, 198, 122)
+  align-items: center
   //padding: 10px
   height: 100vh
   width: 20vw
 
-  a
+  .inicio
+    transition: 0.5s
+    width: 90%
+    text-align: center
     text-decoration: none
     color: #333
     padding: 5px 10px
     margin-bottom: 5px
+    border-radius: 5px
+    font-weight: 900
+    margin-top: 10px
+    background-color: #93df58
 
-    &.active
-      background-color: #ccc
+    &:hover
+      background-color: #c7f4ca
+      color: #333

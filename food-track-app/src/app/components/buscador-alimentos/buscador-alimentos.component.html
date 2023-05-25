@@ -1,15 +1,26 @@
-<h2>Lista de Productos</h2>
-
-<div class="product-container">
+<div class="todo">
+  <h2>Lista de Productos</h2>
   <input type="text" (input)="onSearchInput($event)">
+  <div class="product-container">
+    <ul>
+      <li *ngFor="let product of filteredProducts; let even = even" [ngClass]="{'even': even, 'odd': !even}">
+        <div class="producto">
+          <img src="{{ product.image_front_url }}" alt="Imagen del producto">
+          <div class="info">
+            <p (click)="expandProduct(product.id)">Nombre: {{ product.product_name }}</p>
+            <p>Marca: {{ product.brands }}</p>
+            <div *ngIf="expandedProductId === product.id">
+              <!-- Mostrar información adicional aquí -->
+              <p>Proteínas: {{ product.nutriments.proteins_100g }}</p>
+              <p>Grasas: {{ product.nutriments.fat_100g }}</p>
+              <p>Fibra: {{ product.nutriments.fiber }}</p>
+              <p>Carbohidratos: {{ product.nutriments.carbohydrates_100g }}</p>
+              <!-- Otros detalles del producto -->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-  <ul>
-    <li *ngFor="let product of filteredProducts; let even = even" [ngClass]="{'even': even, 'odd': !even}">
-      <div class="producto">
-        <p>Nombre: {{ product.product_name }}</p>
-        <p>Marca: {{ product.brands }}</p>
-        <p>Nutrición: {{product.nutriment_value_0}}</p>
-      </div>
-    </li>
-  </ul>
 </div>

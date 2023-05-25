@@ -6,6 +6,7 @@
   place-items: center
   font-family: system-ui
   //background-color: #4d22b3
+  background-color: #f6f8d8
 
   .grid
     display: grid
@@ -18,55 +19,68 @@
 
   .grid :nth-child(1),
   .contenido#desayuno div
-    //background-color: #FFA500
-    background-color: #FBAB7E
-    background-image: linear-gradient(135deg, #FBAB7E 0%, #F7CE68 100%)
-
-    //background-image: radial-gradient(farthest-corner circle at 0% 100%, #00ffc2 0%, 26%, #00fbba 0% 0%, 46%, #00e0ff 0% 0%, 60%, #00b7ff 0% 0%, 78%, #004fff 0% 0%)
+    transition: 0.5s
+    background-color: #c7f4ca
     display: grid
     place-items: center
     text-decoration: none
     color: #5c5c5c
     font-weight: 900
     font-size: 3vw
+
+    &:hover
+      border-radius: 30px
+      background-color: #FBAB7E
+      background-image: linear-gradient(135deg, #FBAB7E 0%, #F7CE68 100%)
 
   .grid :nth-child(2),
   .contenido#comida div
-    //background-color: #FFA500
-    background-color: #FBAB7E
-    background-image: linear-gradient(225deg, #FBAB7E 0%, #F7CE68 100%)
+    transition: 0.5s
+    background-color: #c7f4ca
     color: #5c5c5c
-    //background-image: radial-gradient(farthest-corner circle at 50% 0%,#00ffc2 0%, 26%, #00fbba 0% 0%, 46%, #00e0ff 0% 0%, 60%, #00b7ff 0% 0%, 78%, #004fff 0% 0%)
     display: grid
     place-items: center
     text-decoration: none
     font-weight: 900
     font-size: 3vw
+
+    &:hover
+      border-radius: 30px
+      background-color: #FBAB7E
+      background-image: linear-gradient(225deg, #FBAB7E 0%, #F7CE68 100%)
 
   .grid :nth-child(3),
   .contenido#merienda div
-    //background: orange
-    background-color: #FBAB7E
-    background-image: linear-gradient(45deg, #FBAB7E 0%, #F7CE68 100%)
-
+    transition: 0.5s
+    background: #c7f4ca
     display: grid
     place-items: center
     text-decoration: none
     color: #5c5c5c
     font-weight: 900
     font-size: 3vw
+
+    &:hover
+      border-radius: 30px
+      background-color: #FBAB7E
+      background-image: linear-gradient(45deg, #FBAB7E 0%, #F7CE68 100%)
 
   .grid :nth-child(4),
   .contenido#cena div
-    background-color: #FBAB7E
-    background-image: linear-gradient(315deg, #FBAB7E 0%, #F7CE68 100%)
-    //background-image: radial-gradient(farthest-corner circle at 0% 0%, #00ffc2 0%, 26%, #00fbba 0% 0%, 46%, #00e0ff 0% 0%, 60%, #00b7ff 0% 0%, 82%, #004fff 0% 0%)
+    transition: 0.5s
+    background-color: #c7f4ca
+
     display: grid
     place-items: center
     text-decoration: none
     color: #5c5c5c
     font-weight: 900
     font-size: 3vw
+
+    &:hover
+      border-radius: 30px
+      background-color: #FBAB7E
+      background-image: linear-gradient(315deg, #FBAB7E 0%, #F7CE68 100%)
 
   [id] > div
     width: 80vw

@@ -1,3 +1,10 @@
+.todo
+  display: grid
+  place-items: center
+  width: 30vw
+  height: 80vh
+  background-color: #f6f8d8
+
 .product-container
   width: 30vw
   height: 80vh
@@ -9,9 +16,30 @@
   list-style-type: none /* Quita el punto de la lista */
 
 .producto
+  display: flex
+
+.producto img
+  width: auto
+  max-width: 5vw
+  height: 5vw
+  margin-right: 10px
 
 li.even
-  background-color: #7a5656 /* Color del fondo para elementos pares */
+  transition: 0.5s
+  //border: 2px solid rgb(234, 236, 208)
+  background-color: rgb(234, 236, 208)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(315deg, #FBAB7E 0%, #F7CE68 100%)
 
 li.odd
-  background-color: #6d9873 /* Color del fondo para elementos impares */
+  transition: 0.5s
+  //border: 2px solid rgb(242, 247, 213)
+  background-color: rgb(242, 247, 213)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(45deg, #FBAB7E 0%, #F7CE68 100%)

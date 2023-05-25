@@ -9,6 +9,8 @@ import { OpenFoodFactsService } from '../../open-food-facts.service';
 
 })
  export class BuscadorAlimentosComponent {
+
+  expandedProductId: number | null = null;
   products: any[] = [];
   filteredProducts: any[] = [];
   searchTerm: string = '';
@@ -17,6 +19,16 @@ import { OpenFoodFactsService } from '../../open-food-facts.service';
     this.searchTerm = event.target.value;
     console.log(this.searchTerm); // Agrega esta línea para verificar el valor de searchTerm
     this.filterProducts();
+  }
+
+  expandProduct(productId: number) {
+    if (this.expandedProductId === productId) {
+      // Si el producto ya está expandido, lo contraemos al hacer clic nuevamente
+      this.expandedProductId = null;
+    } else {
+      // Si el producto no está expandido, lo expandimos al hacer clic
+      this.expandedProductId = productId;
+    }
   }
 
 
