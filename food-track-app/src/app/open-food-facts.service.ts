@@ -24,4 +24,6 @@ export class OpenFoodFactsService {
     //const headers = new HttpHeaders().set('Food-Track-App', 'Angular - Version 1.0');
     return this.http.get(`https://es.openfoodfacts.org?json=true`);
   }
+
+
 }

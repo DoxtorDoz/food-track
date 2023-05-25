@@ -4,10 +4,11 @@
   <input type="text" (input)="onSearchInput($event)">
 
   <ul>
-    <li *ngFor="let product of filteredProducts | filter: searchTerm; let even = even" [ngClass]="{'even': even, 'odd': !even}">
+    <li *ngFor="let product of filteredProducts; let even = even" [ngClass]="{'even': even, 'odd': !even}">
       <div class="producto">
         <p>Nombre: {{ product.product_name }}</p>
         <p>Marca: {{ product.brands }}</p>
+        <p>Nutrición: {{product.nutriment_value_0}}</p>
       </div>
     </li>
   </ul>

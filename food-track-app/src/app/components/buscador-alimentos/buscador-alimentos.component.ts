@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { OpenFoodFactsService } from '../../open-food-facts.service';
-import { FilterPipe } from '../buscador-alimentos/filter.pipe'
+
 
 @Component({
   selector: 'app-buscador-alimentos',
   templateUrl: './buscador-alimentos.component.html',
   styleUrls: ['./buscador-alimentos.component.sass'],
-  providers: [FilterPipe]
+
 })
  export class BuscadorAlimentosComponent {
   products: any[] = [];
@@ -15,6 +15,7 @@ import { FilterPipe } from '../buscador-alimentos/filter.pipe'
 
   onSearchInput(event: any) {
     this.searchTerm = event.target.value;
+    console.log(this.searchTerm); // Agrega esta línea para verificar el valor de searchTerm
     this.filterProducts();
   }
 
@@ -39,12 +40,10 @@ import { FilterPipe } from '../buscador-alimentos/filter.pipe'
     this.filteredProducts = this.products.filter((product: any) => {
       // Filtrar por el término de búsqueda en el nombre o marca del producto
       return (
-        product.product_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        product.product_name?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
         product.brands.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     });
   }
-
-
 
 }
