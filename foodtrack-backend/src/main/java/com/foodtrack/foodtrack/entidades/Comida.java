@@ -1,6 +1,5 @@
 package com.foodtrack.foodtrack.entidades;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 
@@ -9,10 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "comida")
@@ -22,45 +21,27 @@ public class Comida {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @Column(nullable = false)
-    private String nombre;
+    private String tipo; // Puede ser Desayuno, Comida, Merienda o Cena
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "comida_id")
-    private List<Producto> productos;
+    @Column(nullable = false)
+    private Double totalProteinas;
 
-    // Getters and Setters, constructor, and other methods
+    @Column(nullable = false)
+    private Double totalGrasas;
 
-    public Comida() {
-    }
+    @Column(nullable = false)
+    private Double totalAzucares;
 
-    public Comida(String nombre, List<Producto> productos) {
-        this.nombre = nombre;
-        this.productos = productos;
-    }
+    @Column(nullable = false)
+    private Double totalKcal;
 
-    public Comida(String nombre) {
-        this.nombre = nombre;
-        this.productos = new ArrayList<>();
-    }
+    @ManyToOne
+    @JoinColumn(name = "dia_id", nullable = false)
+    private Dia dia;
 
-    public Comida(String nombre, Producto producto) {
-        this.nombre = nombre;
-        this.productos = new ArrayList<>();
-        this.productos.add(producto);
-    }
+    @OneToMany(mappedBy = "comida", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> alimentos;
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public List<Producto> getProductos() {
-        return this.productos;
-    }
-
+    // Constructor, getters y setters
 }

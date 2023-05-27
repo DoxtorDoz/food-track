@@ -31,9 +31,6 @@ import { OpenFoodFactsService } from '../../open-food-facts.service';
     }
   }
 
-
-
-
   constructor(private openFoodFactsService: OpenFoodFactsService) { }
 
   ngOnInit(): void {

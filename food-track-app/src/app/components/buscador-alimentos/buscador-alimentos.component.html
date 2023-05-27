@@ -9,12 +9,13 @@
           <div class="info">
             <p (click)="expandProduct(product.id)">Nombre: {{ product.product_name }}</p>
             <p>Marca: {{ product.brands }}</p>
-            <div *ngIf="expandedProductId === product.id">
+            <div *ngIf="expandedProductId === product.id" class="datos">
               <!-- Mostrar información adicional aquí -->
-              <p>Proteínas: {{ product.nutriments.proteins_100g }}</p>
               <p>Grasas: {{ product.nutriments.fat_100g }}</p>
-              <p>Fibra: {{ product.nutriments.fiber }}</p>
               <p>Carbohidratos: {{ product.nutriments.carbohydrates_100g }}</p>
+              <p>Proteínas: {{ product.nutriments.proteins_100g }}</p>
+              <p>Fibra: {{ product.nutriments.fiber_100 }}</p>
+
               <!-- Otros detalles del producto -->
             </div>
           </div>
