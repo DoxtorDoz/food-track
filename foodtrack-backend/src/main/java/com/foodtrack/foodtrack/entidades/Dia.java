@@ -1,6 +1,6 @@
 package com.foodtrack.foodtrack.entidades;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 import java.time.LocalDate;
 

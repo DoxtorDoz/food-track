@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-FoodtrackApplication<foodtrack>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.foodtrack.foodtrack.FoodtrackApplication",
+      "projectName": "foodtrack",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

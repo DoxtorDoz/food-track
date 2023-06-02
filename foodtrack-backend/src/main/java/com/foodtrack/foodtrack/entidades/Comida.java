@@ -28,7 +28,14 @@ public class Comida {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private String tipoComida; // Puede ser Desayuno, Comida, Merienda o Cena
+    private TipoComida tipoComida;
+
+    public enum TipoComida {
+        DESAYUNO,
+        COMIDA,
+        MERIENDA,
+        CENA
+    }
 
     @Column(nullable = false)
     private Double totalProteinas;
@@ -58,11 +65,11 @@ public class Comida {
         return id;
     }
 
-    public String getTipoComida() {
+    public TipoComida getTipoComida() {
         return tipoComida;
     }
 
-    public void setTipoComida(String tipoComida) {
+    public void setTipoComida(TipoComida tipoComida) {
         this.tipoComida = tipoComida;
     }
 
