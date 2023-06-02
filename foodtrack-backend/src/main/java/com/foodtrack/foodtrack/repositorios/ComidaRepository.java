@@ -2,8 +2,10 @@ package com.foodtrack.foodtrack.repositorios;
 
 import com.foodtrack.foodtrack.entidades.Comida;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
+@RepositoryRestResource(path = "comidas")
 public interface ComidaRepository extends JpaRepository<Comida, Long> {
 
     // Obtener todas las comidas de un día específico

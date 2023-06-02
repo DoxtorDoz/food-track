@@ -1,0 +1,14 @@
+# docker compose up
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: foodtrack
+      POSTGRES_PASSWORD: food
+      POSTGRES_DB: foodtrack-db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data

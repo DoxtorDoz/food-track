@@ -1,14 +1,14 @@
 package com.foodtrack.foodtrack.repositorios;
 
-//import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-//import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.data.jpa.repository.Query;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 import com.foodtrack.foodtrack.entidades.Dia;
 
+@RepositoryRestResource(path = "dias")
 public interface DiaRepository extends JpaRepository<Dia, Long> {
     // Puedes agregar métodos personalizados aquí si lo necesitas
 
