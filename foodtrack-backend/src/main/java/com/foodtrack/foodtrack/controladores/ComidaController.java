@@ -35,16 +35,14 @@ public class ComidaController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Comida no encontrada"));
     }
 
-    @PostMapping
+    @PostMapping("/crearComida")
     public Comida crearComida(@RequestBody Comida nuevaComida) {
         // Agregar lógica adicional si es necesario antes de guardar la comida
-
         // Asociar los productos a la comida
         List<Producto> productos = nuevaComida.getAlimentos();
         for (Producto producto : productos) {
             producto.setComida(nuevaComida);
         }
-
         // Guardar la comida en la base de datos
         return comidaRepository.save(nuevaComida);
     }
