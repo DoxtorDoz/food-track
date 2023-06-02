@@ -37,4 +37,62 @@ public class Producto {
 
     // Constructor, getters y setters
 
+    public Producto() {
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Double getProteina() {
+        return this.proteina;
+    }
+
+    public void setProteina(Double proteina) {
+        this.proteina = proteina;
+    }
+
+    public Double getGrasa() {
+        return this.grasa;
+    }
+
+    public void setGrasa(Double grasa) {
+        this.grasa = grasa;
+    }
+
+    public Double getAzucar() {
+        return this.azucar;
+    }
+
+    public void setAzucar(Double azucar) {
+        this.azucar = azucar;
+    }
+
+    public Double getKcal() {
+        return this.kcal;
+    }
+
+    public void setKcal(Double kcal) {
+        this.kcal = kcal;
+    }
+
+    public Comida getComida() {
+        return this.comida;
+    }
+
+    public void setComida(Comida comida) {
+        this.comida = comida;
+    }
 }
