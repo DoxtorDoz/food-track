@@ -5,6 +5,7 @@ import com.foodtrack.foodtrack.repositorios.ComidaRepository;
 import com.foodtrack.foodtrack.repositorios.ProductoRepository;
 import com.foodtrack.foodtrack.entidades.Producto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/comidas")
 public class ComidaController {
 
     private final ComidaRepository comidaRepository;

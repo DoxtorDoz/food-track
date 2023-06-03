@@ -2,7 +2,12 @@ package com.foodtrack.foodtrack.entidades;
 
 import jakarta.persistence.*;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "dia")
@@ -28,10 +33,12 @@ public class Dia {
     private Double totalKcal;
 
     @OneToMany(mappedBy = "dia", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Comida> comidas;
 
     // Constructor, getters y setters
     public Dia() {
+        this.comidas = new ArrayList<>();
     }
 
     public Dia(LocalDate fecha) {
@@ -112,5 +119,10 @@ public class Dia {
         this.totalGrasas = totalGrasas;
         this.totalAzucares = totalAzucares;
         this.totalKcal = totalKcal;
+    }
+
+    public void setComida(Comida comida) {
+        this.comidas.add(comida);
+        comida.setDia(this);
     }
 }

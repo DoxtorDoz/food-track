@@ -2,6 +2,7 @@ package com.foodtrack.foodtrack.entidades;
 
 import java.util.List;
 import jakarta.persistence.CascadeType;
+import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +18,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.PrePersist;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "comida")
@@ -51,6 +54,7 @@ public class Comida {
 
     @ManyToOne
     @JoinColumn(name = "dia_id", nullable = false)
+    @JsonIgnore
     private Dia dia;
 
     @OneToMany(mappedBy = "comida", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -59,6 +63,7 @@ public class Comida {
     // Constructor, getters y setters
 
     public Comida() {
+        this.alimentos = new ArrayList<>();
     }
 
     public Long getId() {
@@ -109,12 +114,13 @@ public class Comida {
         return dia;
     }
 
+    // public void setDia(Dia dia) {
+    // this.dia = dia;
+    // }
+
     public void setDia(Dia dia) {
         this.dia = dia;
-    }
-
-    public void setComidas(Dia dia) {
-        this.dia = dia;
+        dia.setComida(this);
     }
 
     public List<Producto> getAlimentos() {
@@ -137,6 +143,11 @@ public class Comida {
             this.totalAzucares += alimento.getAzucar();
             this.totalKcal += alimento.getKcal();
         }
+    }
+
+    public void addProducto(Producto producto) {
+        alimentos.add(producto);
+        producto.setComida(this);
     }
 
 }

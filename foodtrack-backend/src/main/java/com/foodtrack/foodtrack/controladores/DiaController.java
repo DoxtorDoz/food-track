@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/dias")
+@RequestMapping("/dias")
 public class DiaController {
 
     private final DiaRepository diaRepository;
@@ -24,9 +26,14 @@ public class DiaController {
         this.diaRepository = diaRepository;
     }
 
-    @GetMapping
+    @GetMapping("/todosLosDias")
     public List<Dia> obtenerTodosLosDias() {
         return diaRepository.findAll();
+    }
+
+    @PostMapping("/crearDia")
+    public Dia crearDia(@RequestBody Dia nuevoDia) {
+        return diaRepository.save(nuevoDia);
     }
 
     @GetMapping("/{diaId}")
