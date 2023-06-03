@@ -1,6 +1,23 @@
-<div class="contenido">
-  <div>
-    <h2>Comida</h2>
+<div *ngIf="tipoComida === 'desayuno'">
+  <div class="contenido">
+    <h2>Desayuno</h2>
+    <div class="bloque">
+      <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+      <div class="alimentos">
+        <h1>Listado alimentos</h1>
+      </div>
+    </div>
   </div>
 </div>
-<app-buscador-alimentos></app-buscador-alimentos>
+
+<div *ngIf="tipoComida === 'comida'">
+  <!-- Mostrar información de la comida -->
+</div>
+
+<div *ngIf="tipoComida === 'merienda'">
+  <!-- Mostrar información de la merienda -->
+</div>
+
+<div *ngIf="tipoComida === 'cena'">
+  <!-- Mostrar información de la cena -->
+</div>

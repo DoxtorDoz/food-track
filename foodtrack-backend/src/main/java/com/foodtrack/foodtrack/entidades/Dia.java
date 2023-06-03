@@ -3,7 +3,6 @@ package com.foodtrack.foodtrack.entidades;
 import jakarta.persistence.*;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
@@ -33,7 +32,7 @@ public class Dia {
     private Double totalKcal;
 
     @OneToMany(mappedBy = "dia", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
+    // @JsonIgnore
     private List<Comida> comidas;
 
     // Constructor, getters y setters

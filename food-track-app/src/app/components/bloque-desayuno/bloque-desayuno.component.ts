@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { OpenFoodFactsService } from '../../open-food-facts.service';
+import { OpenFoodFactsService } from '../../services/open-food-facts.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-bloque-desayuno',
@@ -7,8 +8,12 @@ import { OpenFoodFactsService } from '../../open-food-facts.service';
   styleUrls: ['./bloque-desayuno.component.sass']
 })
 export class BloqueDesayunoComponent {
-  constructor(private openFoodFactsService: OpenFoodFactsService) { }
+  constructor(private openFoodFactsService: OpenFoodFactsService, backendService: BackendService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    //this.obtenerDatos();
+  }
+
+
 
 }

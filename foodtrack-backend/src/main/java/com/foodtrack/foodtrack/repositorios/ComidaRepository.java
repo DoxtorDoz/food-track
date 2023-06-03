@@ -8,9 +8,8 @@ import java.util.List;
 @RepositoryRestResource(path = "comidas")
 public interface ComidaRepository extends JpaRepository<Comida, Long> {
 
-    List<Comida> findByDiaId(Long diaId);
-
-    List<Comida> findByTipoComida(String tipo);
+    List<Comida> findByDia_Id(Long diaId);
 
     List<Comida> findByAlimentosNombre(String nombreProducto);
+
 }

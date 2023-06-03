@@ -20,6 +20,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.PrePersist;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "comida")
@@ -58,6 +59,7 @@ public class Comida {
     private Dia dia;
 
     @OneToMany(mappedBy = "comida", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Producto> alimentos;
 
     // Constructor, getters y setters
@@ -119,8 +121,13 @@ public class Comida {
     // }
 
     public void setDia(Dia dia) {
+        if (this.dia != null) {
+            this.dia.getComidas().remove(this);
+        }
         this.dia = dia;
-        dia.setComida(this);
+        if (dia != null) {
+            dia.getComidas().add(this);
+        }
     }
 
     public List<Producto> getAlimentos() {

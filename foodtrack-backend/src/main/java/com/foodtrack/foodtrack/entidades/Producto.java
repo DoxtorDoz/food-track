@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 
@@ -33,6 +36,7 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "comida_id", nullable = false)
+    @JsonBackReference
     private Comida comida;
 
     // Constructor, getters y setters

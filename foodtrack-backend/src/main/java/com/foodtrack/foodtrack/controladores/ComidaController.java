@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.ArrayList;
+import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController
@@ -22,6 +24,7 @@ import java.util.List;
 @RequestMapping("/comidas")
 public class ComidaController {
 
+    @Autowired
     private final ComidaRepository comidaRepository;
     private final ProductoRepository productoRepository;
 

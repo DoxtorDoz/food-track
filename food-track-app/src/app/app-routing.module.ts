@@ -9,28 +9,18 @@ import { MainComponent } from './components/main/main.component';
 import { AppComponent } from './app.component';
 
 
+
 // const routes: Routes = [
-//   {
-//     path: '',
-//     component: AppComponent,
-//     children: [
-//       { path: 'main', component: MainComponent},
-//       { path: 'desayuno', component: BloqueDesayunoComponent },
-//       { path: 'comida', component: BloqueComidaComponent },
-//       { path: 'merienda', component: BloqueMeriendaComponent },
-//       { path: 'cena', component: BloqueCenaComponent },
-//       { path: '', redirectTo: 'desayuno', pathMatch: 'full' } // Ruta por defecto dentro de AppComponent
-//     ]
-//   }
+//   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
+//   { path: 'main', component: MainComponent },
+//   { path: 'desayuno', component: BloqueDesayunoComponent },
+//   { path: 'comida', component: BloqueComidaComponent },
+//   { path: 'merienda', component: BloqueMeriendaComponent },
+//   { path: 'cena', component: BloqueCenaComponent },
 // ];
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
-  { path: 'main', component: MainComponent },
-  { path: 'desayuno', component: BloqueDesayunoComponent },
-  { path: 'comida', component: BloqueComidaComponent },
-  { path: 'merienda', component: BloqueMeriendaComponent },
-  { path: 'cena', component: BloqueCenaComponent },
+  { path: '', component: BloqueComidaComponent }
 ];
 
 

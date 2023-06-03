@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OpenFoodFactsService } from '../../open-food-facts.service';
+import { OpenFoodFactsService } from '../../services/open-food-facts.service';
 
 
 @Component({
