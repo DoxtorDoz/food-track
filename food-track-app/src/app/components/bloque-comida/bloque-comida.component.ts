@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,14 +8,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BloqueComidaComponent implements OnInit{
 
-  tipoComida!: string;
+  //tipoComida!: string;
+  @Input() tipoComida!: string;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.tipoComida = params['tipoComida'];
-      // Lógica para obtener y mostrar la información según el tipo de comida
+    this.route.paramMap.subscribe(params => {
+      this.tipoComida = params.get('tipoComida') ?? '';
+      console.log(this.tipoComida);
     });
   }
 

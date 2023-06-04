@@ -13,16 +13,18 @@ import { AppComponent } from './app.component';
 // const routes: Routes = [
 //   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
 //   { path: 'main', component: MainComponent },
-//   { path: 'desayuno', component: BloqueDesayunoComponent },
+//   { path: 'desayuno', component: BloqueComidaComponent },
 //   { path: 'comida', component: BloqueComidaComponent },
-//   { path: 'merienda', component: BloqueMeriendaComponent },
-//   { path: 'cena', component: BloqueCenaComponent },
+//   { path: 'merienda', component: BloqueComidaComponent },
+//   { path: 'cena', component: BloqueComidaComponent },
 // ];
 
-const routes: Routes = [
-  { path: '', component: BloqueComidaComponent }
-];
 
+const routes: Routes = [
+  { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
+  { path: 'main', component: MainComponent },
+  { path: 'comida/:tipoComida', component: BloqueComidaComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

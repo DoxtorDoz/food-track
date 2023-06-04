@@ -1,3 +1,14 @@
+<h1>HOAL</h1>
+<!-- <div class="contenido">
+  <h2>Desayuno</h2>
+  <div class="bloque">
+    <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+    <div class="alimentos">
+      <h1>Listado alimentos</h1>
+    </div>
+  </div>
+</div> -->
+
 <div *ngIf="tipoComida === 'desayuno'">
   <div class="contenido">
     <h2>Desayuno</h2>
@@ -11,13 +22,37 @@
 </div>
 
 <div *ngIf="tipoComida === 'comida'">
-  <!-- Mostrar información de la comida -->
+  <div class="contenido">
+    <h2>Comida</h2>
+    <div class="bloque">
+      <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+      <div class="alimentos">
+        <h1>Listado alimentos</h1>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="tipoComida === 'merienda'">
-  <!-- Mostrar información de la merienda -->
+  <div class="contenido">
+    <h2>Merienda</h2>
+    <div class="bloque">
+      <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+      <div class="alimentos">
+        <h1>Listado alimentos</h1>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="tipoComida === 'cena'">
-  <!-- Mostrar información de la cena -->
+  <div class="contenido">
+    <h2>Cena</h2>
+    <div class="bloque">
+      <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+      <div class="alimentos">
+        <h1>Listado alimentos</h1>
+      </div>
+    </div>
+  </div>
 </div>

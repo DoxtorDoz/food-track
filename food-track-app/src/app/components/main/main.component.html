@@ -1,10 +1,14 @@
 <div class="contenido">
   <a>Día XX/XX/XXXX</a>
   <div class="grid">
-    <a [routerLink]="['/', 'desayuno']" class="desayuno">Desayuno</a>
-    <a [routerLink]="['/', 'comida']" class="comida">Comida</a>
-    <a [routerLink]="['/', 'merienda']" class="merienda">Merienda</a>
-    <a [routerLink]="['/', 'cena']" class="cena">Cena</a>
+    <a routerLink="/comida" (click)="seleccionarComida('desayuno')" class="desayuno">Desayuno</a>
+    <a routerLink="/comida" (click)="seleccionarComida('comida')" class="comida">Comida</a>
+    <a routerLink="/comida" (click)="seleccionarComida('merienda')" class="merienda">Merienda</a>
+    <a routerLink="/comida" (click)="seleccionarComida('cena')" class="cena">Cena</a>
   </div>
   <router-outlet></router-outlet>
 </div>
+
+<h1>HOAL</h1>
+
+<!--app-bloque-comida [tipoComida]="comidaService.getTipoComida()"></app-bloque-comida-->

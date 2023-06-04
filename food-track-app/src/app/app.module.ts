@@ -13,6 +13,7 @@ import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.
 import { HttpClientModule } from '@angular/common/http';
 import { BuscadorAlimentosComponent } from './components/buscador-alimentos/buscador-alimentos.component';
 import { FilterPipe } from './components/buscador-alimentos/filter.pipe';
+import { ComidaService } from './services/comida.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { FilterPipe } from './components/buscador-alimentos/filter.pipe';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ComidaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
