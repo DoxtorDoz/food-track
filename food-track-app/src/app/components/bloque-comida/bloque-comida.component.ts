@@ -15,6 +15,7 @@ export class BloqueComidaComponent implements OnInit{
   expandedProductId: number | null = null;
   diaActual: Dia | undefined;
   comidaActual: Comida | undefined;
+  dias: Dia[] = [];
 
 
 
@@ -24,6 +25,11 @@ export class BloqueComidaComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       this.tipoComida = params.get('tipoComida') ?? '';
       console.log(this.tipoComida);
+    });
+
+    this.backendService.getDias().subscribe((dias: Dia[]) => {
+      this.dias = dias;
+      this.diaActual = dias[dias.length - 1]; // seleccionamos el último día
     });
   }
 

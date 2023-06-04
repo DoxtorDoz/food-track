@@ -9,6 +9,7 @@ import { Dia } from '../../models/dia';
 })
 export class MenuVerticalComponent implements OnInit {
   dias: Dia[] = [];
+  diaActual= 0;
 
   constructor(private backendService: BackendService) { }
 
@@ -32,6 +33,11 @@ export class MenuVerticalComponent implements OnInit {
         console.error(error);
       }
     );
+
+    this.backendService.getDias().subscribe((dias: Dia[]) => {
+      this.dias = dias;
+      this.diaActual = dias[dias.length - 1].id; // seleccionamos el último día
+    });
   }
 
   crearDia(): void {
