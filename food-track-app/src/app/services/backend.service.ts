@@ -13,6 +13,9 @@ export class BackendService {
   // Cambiamos diaActual a BehaviorSubject para manejar los cambios de forma reactiva
   private diaActual = new BehaviorSubject<Dia | undefined>(undefined);
 
+
+
+
   getDiaActual(): Observable<Dia | undefined> {
     return this.diaActual.asObservable();
   }
@@ -66,5 +69,14 @@ export class BackendService {
 //   actualizarComida(diaId: number, comidaId: number, comida: Comida): Observable<Comida> {
 //     return this.http.put<Comida>(`${this.baseUrl}/dias/${diaId}/actualizarComida/${comidaId}`, comida, this.httpOptions);
 // }
+
+getDias(): Observable<any> {
+  return this.http.get<any>(`${this.baseUrl}/dias`);
+}
+
+getDia(id: string): Observable<Dia> {
+  return this.http.get<Dia>(`${this.baseUrl}/dias/${id}`);
+}
+
 
 }

@@ -1,11 +1,11 @@
 <div class="menu">
   <a routerLink="/main" class="inicio">Inicio</a>
   <p style="font-weight: bold;">Dias</p>
-  <div class="array-dias">
-    <div class="dias-menu">
-      <span>Fecha día</span>
+  <div class="array-dias" >
+    <div class="dias-menu" *ngFor="let dia of dias">
+      <span>{{dia.fecha}}</span>
       <br>
-      <span>XXXX kcals</span>
+      <span>{{dia.totalCalorias}}</span>
     </div>
   </div>
   <div class="footer">
