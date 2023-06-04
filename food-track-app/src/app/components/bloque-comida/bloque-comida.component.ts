@@ -1,7 +1,7 @@
 import { Component , OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from '../../services/backend.service';
-import { Comida, TipoComida, Dia } from '../../models/dia';
+import { Comida, TipoComida, Dia, Producto } from '../../models/dia';
 @Component({
   selector: 'app-bloque-comida',
   templateUrl: './bloque-comida.component.html',
@@ -42,16 +42,37 @@ export class BloqueComidaComponent implements OnInit{
     }
   }
 
+  guardarTodasLasComidas() {
+    this.guardarComida('DESAYUNO');
+    this.guardarComida('COMIDA');
+    this.guardarComida('MERIENDA');
+    this.guardarComida('CENA');
+  }
+
+
   guardarComida(tipoComida: string) {
     const { totalCalorias} = this.calcularTotales();
 
+    const productosDeApi = this.productosSeleccionados;
+    const alimentos: Producto[] = productosDeApi.map(productoApi => {
+        return {
+            nombre: productoApi.abbreviated_product_name, // O el campo que represente el nombre
+            kcal: productoApi.nutriments.energy_100g,
+        };
+    });
+
     const comida: Comida = {
-      id: 2, // Reemplaza con el valor adecuado
+      //id: 200,
       tipoComida: TipoComida[tipoComida.toUpperCase() as keyof typeof TipoComida],
-      totalCalorias,
-      productos: this.productosSeleccionados
+      totalKcal: totalCalorias,
+      alimentos: alimentos.map(producto => {
+        return {
+          nombre: producto.nombre,
+          kcal: producto.kcal,
+        };})
     };
 
+      console.log(comida);
 
     this.backendService.getDiaActual().subscribe(diaActual => {
       if (diaActual) {
@@ -66,6 +87,7 @@ export class BloqueComidaComponent implements OnInit{
       } else {
         console.error('No hay un día actual definido');
       }
+      console.log(comida)
     });
   }
 
@@ -82,28 +104,28 @@ export class BloqueComidaComponent implements OnInit{
     };
   }
 
-  actualizarComida(tipoComida: string) {
-    const comida: Comida = {
-      id: 2,
-      tipoComida: TipoComida[tipoComida.toUpperCase() as keyof typeof TipoComida],
-      totalCalorias: 0,
-      productos: this.productosSeleccionados
-    };
-    const diaId = this.diaActual?.id;
-    const comidaId = this.comidaActual?.id;
+  // actualizarComida(tipoComida: string) {
+  //   const comida: Comida = {
+  //     //id: 2,
+  //     tipoComida: TipoComida[tipoComida.toUpperCase() as keyof typeof TipoComida],
+  //     totalCalorias: 0,
+  //     productos: this.productosSeleccionados
+  //   };
+  //   const diaId = this.diaActual?.id;
+  //   //const comidaId = this.comidaActual?.id;
 
-    if (diaId !== undefined && comidaId !== undefined) {
-      this.backendService.actualizarComida(diaId, comidaId, comida).subscribe(
-        (response: Comida) => {
-          console.log('Comida actualizada:', response);
-        },
-        (error: any) => {
-          console.error('Error al actualizar la comida:', error);
-        }
-      );
-    } else {
-      console.error('No se puede actualizar la comida porque diaId o comidaId son indefinidos');
-    }
-  }
+  //   if (diaId !== undefined) {
+  //     this.backendService.actualizarComida(diaId, comida).subscribe(
+  //       (response: Comida) => {
+  //         console.log('Comida actualizada:', response);
+  //       },
+  //       (error: any) => {
+  //         console.error('Error al actualizar la comida:', error);
+  //       }
+  //     );
+  //   } else {
+  //     console.error('No se puede actualizar la comida porque diaId o comidaId son indefinidos');
+  //   }
+  // }
 
 }

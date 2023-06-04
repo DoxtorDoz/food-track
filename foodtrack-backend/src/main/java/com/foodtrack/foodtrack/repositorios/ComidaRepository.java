@@ -9,7 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 @RepositoryRestResource(path = "comidas")
-@Transactional
 public interface ComidaRepository extends JpaRepository<Comida, Long> {
 
     List<Comida> findByDia_Id(Long diaId);

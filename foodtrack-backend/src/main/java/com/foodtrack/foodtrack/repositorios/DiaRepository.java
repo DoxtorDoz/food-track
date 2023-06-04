@@ -16,7 +16,6 @@ import com.foodtrack.foodtrack.entidades.Dia;
 import jakarta.transaction.Transactional;
 
 @RepositoryRestResource(path = "dias")
-@Transactional
 public interface DiaRepository extends JpaRepository<Dia, Long> {
     // Puedes agregar métodos personalizados aquí si lo necesitas
 

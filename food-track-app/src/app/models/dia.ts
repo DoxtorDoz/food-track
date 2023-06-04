@@ -7,10 +7,10 @@ export interface Dia {
 
 
 export interface Comida {
-  id: number;
+  //id: number;
   tipoComida: TipoComida;
-  totalCalorias: number;
-  productos: Producto[];
+  totalKcal: number;
+  alimentos: Producto[];
 }
 
 export enum TipoComida {
@@ -21,9 +21,8 @@ export enum TipoComida {
 }
 
 export interface Producto {
-  id: number;
+  //id: number;
   nombre: string;
-  calorias: number;
-  comida: Comida;
+  kcal: number;
 }
 

@@ -43,7 +43,7 @@ public class Comida {
         CENA
     }
 
-    @Column(nullable = false)
+    @Column(name = "totalKcal", nullable = false)
     private Double totalKcal;
 
     @ManyToOne
@@ -51,9 +51,9 @@ public class Comida {
     @JsonIgnore
     private Dia dia;
 
-    @OneToMany(mappedBy = "comida", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<Producto> alimentos;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "comida_id")
+    private List<Producto> alimentos = new ArrayList<>();
 
     // Constructor, getters y setters
 
@@ -73,11 +73,11 @@ public class Comida {
         this.tipoComida = tipoComida;
     }
 
-    public Double getTotalCalorias() {
+    public Double getTotalKcal() {
         return totalKcal;
     }
 
-    public void setTotalCalorias(Double totalKcal) {
+    public void setTotalKcal(Double totalKcal) {
         this.totalKcal = totalKcal;
     }
 
@@ -112,7 +112,6 @@ public class Comida {
 
     public void addProducto(Producto producto) {
         alimentos.add(producto);
-        producto.setComida(this);
     }
 
 }

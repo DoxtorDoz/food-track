@@ -39,12 +39,13 @@ export class BackendService {
 
   crearComida(diaId: number, nuevaComida: Comida): Observable<Comida> {
     return this.http.post<Comida>(`${this.baseUrl}/dias/${diaId}/crearComida`, nuevaComida, this.httpOptions);
+    console.log(nuevaComida);
   }
 
   enviarDatos(data: any): Observable<any> {
     // Realizar una solicitud HTTP POST al backend
     // y enviar los datos en el cuerpo de la solicitud
-    return this.http.post('/api/comida', data);
+    return this.http.post('/api/comidas', data);
   }
 
   crearDiaVacio(): Observable<Dia> {
@@ -62,8 +63,8 @@ export class BackendService {
     );
   }
 
-  actualizarComida(diaId: number, comidaId: number, comida: Comida): Observable<Comida> {
-    return this.http.put<Comida>(`${this.baseUrl}/dias/${diaId}/actualizarComida/${comidaId}`, comida, this.httpOptions);
-}
+//   actualizarComida(diaId: number, comidaId: number, comida: Comida): Observable<Comida> {
+//     return this.http.put<Comida>(`${this.baseUrl}/dias/${diaId}/actualizarComida/${comidaId}`, comida, this.httpOptions);
+// }
 
 }

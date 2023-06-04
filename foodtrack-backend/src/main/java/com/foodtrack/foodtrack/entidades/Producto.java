@@ -25,10 +25,10 @@ public class Producto {
     @Column(nullable = false)
     private Double kcal;
 
-    @ManyToOne
-    @JoinColumn(name = "comida_id", nullable = false)
-    @JsonBackReference
-    private Comida comida;
+    // @ManyToOne
+    // @JoinColumn(name = "comida_id", nullable = false)
+    // @JsonBackReference
+    // private Comida comida;
 
     // Constructor, getters y setters
 
@@ -59,17 +59,17 @@ public class Producto {
         this.kcal = kcal;
     }
 
-    public Comida getComida() {
-        return this.comida;
-    }
+    // public Comida getComida() {
+    // return this.comida;
+    // }
 
-    public void setComida(Comida comida) {
-        if (this.comida != null) {
-            this.comida.getAlimentos().remove(this);
-        }
-        this.comida = comida;
-        if (comida != null && !comida.getAlimentos().contains(this)) {
-            comida.getAlimentos().add(this);
-        }
-    }
+    // public void setComida(Comida comida) {
+    // if (this.comida != null) {
+    // this.comida.getAlimentos().remove(this);
+    // }
+    // this.comida = comida;
+    // if (comida != null && !comida.getAlimentos().contains(this)) {
+    // comida.getAlimentos().add(this);
+    // }
+    // }
 }

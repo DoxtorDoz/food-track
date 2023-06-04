@@ -72,7 +72,7 @@ public class Dia {
         double totalKcal = 0.0;
 
         for (Comida comida : this.comidas) {
-            totalKcal += comida.getTotalCalorias();
+            totalKcal += comida.getTotalKcal();
         }
         this.totalKcal = totalKcal;
     }
