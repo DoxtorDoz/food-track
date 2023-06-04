@@ -23,15 +23,6 @@ public class Producto {
     private String nombre;
 
     @Column(nullable = false)
-    private Double proteina;
-
-    @Column(nullable = false)
-    private Double grasa;
-
-    @Column(nullable = false)
-    private Double azucar;
-
-    @Column(nullable = false)
     private Double kcal;
 
     @ManyToOne
@@ -60,30 +51,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Double getProteina() {
-        return this.proteina;
-    }
-
-    public void setProteina(Double proteina) {
-        this.proteina = proteina;
-    }
-
-    public Double getGrasa() {
-        return this.grasa;
-    }
-
-    public void setGrasa(Double grasa) {
-        this.grasa = grasa;
-    }
-
-    public Double getAzucar() {
-        return this.azucar;
-    }
-
-    public void setAzucar(Double azucar) {
-        this.azucar = azucar;
-    }
-
     public Double getKcal() {
         return this.kcal;
     }
@@ -97,6 +64,12 @@ public class Producto {
     }
 
     public void setComida(Comida comida) {
+        if (this.comida != null) {
+            this.comida.getAlimentos().remove(this);
+        }
         this.comida = comida;
+        if (comida != null && !comida.getAlimentos().contains(this)) {
+            comida.getAlimentos().add(this);
+        }
     }
 }

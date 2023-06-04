@@ -1,25 +1,43 @@
-<h1>HOAL</h1>
-<!-- <div class="contenido">
-  <h2>Desayuno</h2>
-  <div class="bloque">
-    <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
-    <div class="alimentos">
-      <h1>Listado alimentos</h1>
-    </div>
-  </div>
-</div> -->
+<!--
+  DESAYUNO
+-->
 
 <div *ngIf="tipoComida === 'desayuno'">
   <div class="contenido">
-    <h2>Desayuno</h2>
+    <h2>{{tipoComida}}</h2>
     <div class="bloque">
-      <app-buscador-alimentos class="buscador"></app-buscador-alimentos>
+      <app-buscador-alimentos class="buscador" (productoSeleccionado)="agregarProducto($event)"></app-buscador-alimentos>
       <div class="alimentos">
-        <h1>Listado alimentos</h1>
+        <h2>Listado alimentos</h2>
+        <div class="seleccionados">
+          <ul>
+            <li *ngFor="let product of productosSeleccionados; let even = even" [ngClass]="{'even': even, 'odd': !even}">
+              <div class="producto">
+                <img src="{{ product.image_front_url }}" alt="Imagen del producto">
+                <div class="info">
+                  <p (click)="expandProduct(product.id)">Nombre: {{ product.product_name }}</p>
+                  <!--p>Marca: {{ product.brands }}</p-->
+                  <div *ngIf="expandedProductId === product.id" class="datos">
+                    <!-- Mostrar información adicional aquí -->
+                    <p>Calorias: {{ product.nutriments.energy_100g }}</p>
+                    <!-- Otros detalles del producto -->
+                  </div>
+                  <button (click)="(product)">Eliminar</button>
+                </div>
+              </div>
+              </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <button (click)="guardarComida('DESAYUNO')">Guardar DESAYUNO</button>
+
   </div>
 </div>
+
+<!--
+  COMIDA
+-->
 
 <div *ngIf="tipoComida === 'comida'">
   <div class="contenido">
@@ -33,6 +51,10 @@
   </div>
 </div>
 
+<!--
+  MERIENDA
+-->
+
 <div *ngIf="tipoComida === 'merienda'">
   <div class="contenido">
     <h2>Merienda</h2>
@@ -44,6 +66,10 @@
     </div>
   </div>
 </div>
+
+<!--
+  CENA
+-->
 
 <div *ngIf="tipoComida === 'cena'">
   <div class="contenido">

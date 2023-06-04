@@ -22,6 +22,8 @@ import jakarta.persistence.PrePersist;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import io.micrometer.common.lang.Nullable;
+
 @Entity
 @Table(name = "comida")
 public class Comida {
@@ -40,15 +42,6 @@ public class Comida {
         MERIENDA,
         CENA
     }
-
-    @Column(nullable = false)
-    private Double totalProteinas;
-
-    @Column(nullable = false)
-    private Double totalGrasas;
-
-    @Column(nullable = false)
-    private Double totalAzucares;
 
     @Column(nullable = false)
     private Double totalKcal;
@@ -80,45 +73,17 @@ public class Comida {
         this.tipoComida = tipoComida;
     }
 
-    public Double getTotalProteinas() {
-        return totalProteinas;
-    }
-
-    public void setTotalProteinas(Double totalProteinas) {
-        this.totalProteinas = totalProteinas;
-    }
-
-    public Double getTotalGrasas() {
-        return totalGrasas;
-    }
-
-    public void setTotalGrasas(Double totalGrasas) {
-        this.totalGrasas = totalGrasas;
-    }
-
-    public Double getTotalAzucares() {
-        return totalAzucares;
-    }
-
-    public void setTotalAzucares(Double totalAzucares) {
-        this.totalAzucares = totalAzucares;
-    }
-
-    public Double getTotalKcal() {
+    public Double getTotalCalorias() {
         return totalKcal;
     }
 
-    public void setTotalKcal(Double totalKcal) {
+    public void setTotalCalorias(Double totalKcal) {
         this.totalKcal = totalKcal;
     }
 
     public Dia getDia() {
         return dia;
     }
-
-    // public void setDia(Dia dia) {
-    // this.dia = dia;
-    // }
 
     public void setDia(Dia dia) {
         if (this.dia != null) {
@@ -138,16 +103,9 @@ public class Comida {
         this.alimentos = alimentos;
     }
 
-    @PrePersist
     public void calcularTotales() {
-        this.totalProteinas = 0.0;
-        this.totalGrasas = 0.0;
-        this.totalAzucares = 0.0;
         this.totalKcal = 0.0;
         for (Producto alimento : this.alimentos) {
-            this.totalProteinas += alimento.getProteina();
-            this.totalGrasas += alimento.getGrasa();
-            this.totalAzucares += alimento.getAzucar();
             this.totalKcal += alimento.getKcal();
         }
     }

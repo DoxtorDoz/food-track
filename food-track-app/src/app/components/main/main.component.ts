@@ -11,10 +11,14 @@ export class MainComponent {
   title = 'Mi Aplicación';
 
 
+
+
   constructor(private comidaService: ComidaService, private router: Router) {}
 
   seleccionarComida(tipoComida: string) {
     this.comidaService.setTipoComida(tipoComida);
     this.router.navigate(['/comida', tipoComida]);
   }
+
+
 }

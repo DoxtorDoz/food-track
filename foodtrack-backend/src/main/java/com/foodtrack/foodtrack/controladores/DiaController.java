@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.foodtrack.foodtrack.entidades.Comida;
 import com.foodtrack.foodtrack.entidades.Producto;
@@ -60,6 +61,32 @@ public class DiaController {
             producto.setComida(nuevaComida);
         }
         return comidaRepository.save(nuevaComida);
+    }
+
+    @PutMapping("/{diaId}/actualizarComida/{comidaId}")
+    public Comida actualizarComida(@PathVariable Long diaId, @PathVariable Long comidaId,
+            @RequestBody Comida nuevaComida) {
+        Dia dia = diaRepository.findById(diaId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Día no encontrado"));
+
+        Comida comidaExistente = comidaRepository.findById(comidaId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Comida no encontrada"));
+
+        // Actualizar los campos de la comida existente con los valores de nuevaComida
+        // Aquí asumimos que los campos que quieres actualizar están en nuevaComida
+        comidaExistente.setTipoComida(nuevaComida.getTipoComida());
+        comidaExistente.setTotalCalorias(nuevaComida.getTotalCalorias());
+
+        // También puedes actualizar la lista de productos si necesitas hacerlo
+        List<Producto> productos = nuevaComida.getAlimentos();
+        for (Producto producto : productos) {
+            producto.setComida(comidaExistente);
+        }
+        comidaExistente.setAlimentos(productos);
+
+        // Finalmente, guarda la comida existente con los nuevos valores en la base de
+        // datos
+        return comidaRepository.saveAndFlush(comidaExistente);
     }
 
 }

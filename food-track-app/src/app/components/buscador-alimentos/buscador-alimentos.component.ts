@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 import { OpenFoodFactsService } from '../../services/open-food-facts.service';
 
 
@@ -54,5 +54,13 @@ import { OpenFoodFactsService } from '../../services/open-food-facts.service';
       );
     });
   }
+
+  @Output() productoSeleccionado = new EventEmitter<any>();
+
+  seleccionarProducto(producto: any) {
+    this.productoSeleccionado.emit(producto);
+    console.log(producto);
+  }
+
 
 }

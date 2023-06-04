@@ -1,3 +1,67 @@
 .contenido
-  background-color: #FFFFFF
-  background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%)
+  background-color: #85FFBD
+  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)
+  height: 100vh
+  width: 80vw
+
+.bloque
+  display: flex
+  //height: 100vh
+  //width: 100vw
+
+.buscador
+  width: 30vw
+  //height: 80vh
+
+  .producto
+    display: flex
+
+.producto img
+  width: auto
+  max-width: 5vw
+  height: 5vw
+  margin-right: 10px
+
+li.even
+  transition: 0.5s
+  //border: 2px solid rgb(234, 236, 208)
+  background-color: rgb(234, 236, 208)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(315deg, #FBAB7E 0%, #F7CE68 100%)
+
+li.odd
+  transition: 0.5s
+  //border: 2px solid rgb(242, 247, 213)
+  background-color: rgb(242, 247, 213)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(45deg, #FBAB7E 0%, #F7CE68 100%)
+
+.seleccionados ul
+  list-style-type: none
+
+.datos p
+  margin: 0
+  padding: 0
+  //font-size: 1.2rem
+  font-weight: bold
+
+// .seleccionados
+//   width: 30vw
+//   height: 80vh
+//   overflow: auto /* Habilita el scroll si los productos exceden las dimensiones */
+//   border: 1px solid #ccc /* Agrega un borde para delimitar la caja */
+//   padding: 10px /* Agrega un espacio interno para los elementos dentro de la caja */
+
+.seleccionados
+  backdground-color: #f6f8d8
+  width: 30vw
+  height: 70vh
+  overflow: auto /* Habilita el scroll si los productos exceden las dimensiones */
+  border: 1px solid #ccc /* Agrega un borde para delimitar la caja */
+  padding: 10px /* Agrega un espacio interno para los elementos dentro de la caja */

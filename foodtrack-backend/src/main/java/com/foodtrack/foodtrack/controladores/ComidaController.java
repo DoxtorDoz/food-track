@@ -24,7 +24,6 @@ import java.util.List;
 @RequestMapping("/comidas")
 public class ComidaController {
 
-    @Autowired
     private final ComidaRepository comidaRepository;
     private final ProductoRepository productoRepository;
 

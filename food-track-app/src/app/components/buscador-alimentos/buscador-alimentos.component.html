@@ -15,9 +15,9 @@
               <p>Carbohidratos: {{ product.nutriments.carbohydrates_100g }}</p>
               <p>Proteínas: {{ product.nutriments.proteins_100g }}</p>
               <p>Fibra: {{ product.nutriments.fiber_100 }}</p>
-
               <!-- Otros detalles del producto -->
             </div>
+            <button (click)="seleccionarProducto(product)">Añadir</button>
           </div>
         </div>
       </li>
