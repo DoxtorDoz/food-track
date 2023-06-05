@@ -10,6 +10,18 @@ import { Router } from '@angular/router';
 export class MainComponent {
   title = 'Mi Aplicación';
 
+  fechaActual: string = '';
+
+
+  ngOnInit() {
+    const fecha = new Date();
+    const dia = fecha.getDate();
+    const mes = fecha.getMonth() + 1;
+    const anio = fecha.getFullYear();
+    this.fechaActual = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${anio}`;
+  }
+
+
 
 
 
