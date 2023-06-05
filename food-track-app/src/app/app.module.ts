@@ -12,6 +12,7 @@ import { BuscadorAlimentosComponent } from './components/buscador-alimentos/busc
 import { FilterPipe } from './components/buscador-alimentos/filter.pipe';
 import { ComidaService } from './services/comida.service';
 import { VistaDiaComponent } from './components/vista-dia/vista-dia.component';
+import { TiempoService } from './services/tiempo.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { VistaDiaComponent } from './components/vista-dia/vista-dia.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ComidaService],
+  providers: [ComidaService, TiempoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

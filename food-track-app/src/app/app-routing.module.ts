@@ -6,6 +6,7 @@ import { BloqueComidaComponent } from './components/bloque-comida/bloque-comida.
 import { MainComponent } from './components/main/main.component';
 import { AppComponent } from './app.component';
 import { VistaDiaComponent } from './components/vista-dia/vista-dia.component';
+import { TiempoService } from './services/tiempo.service';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [TiempoService]
 })
 
 export class AppRoutingModule { }
