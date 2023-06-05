@@ -26,7 +26,7 @@ export class BackendService {
 
   constructor(private http: HttpClient) {
     this.crearDiaVacio().subscribe();
-    console.log(this.diaActual);
+    console.log("el dia es:"+this.getDiaActual());
   }
 
     // obtenerTodosLosDias(): Observable<Dia[]> {

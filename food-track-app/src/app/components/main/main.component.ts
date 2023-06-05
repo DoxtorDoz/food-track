@@ -27,12 +27,6 @@ export class MainComponent {
     this.fechaActual = `${dia < 10 ? '0' + dia : dia}/${mes < 10 ? '0' + mes : mes}/${anio}`;
   }
 
-
-
-
-
-
-
   seleccionarComida(tipoComida: string) {
     this.comidaService.setTipoComida(tipoComida);
     this.router.navigate(['/comida', tipoComida]);

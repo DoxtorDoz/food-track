@@ -1,3 +1,31 @@
+# version: '3'
+# services:
+#   frontend:
+#     build:
+#       context: ./food-track-app
+#       dockerfile: Dockerfile
+#     ports:
+#       - '4200:4200'
+#   backend:
+#     build:
+#       context: ./foodtrack-backend 
+#       dockerfile: Dockerfile
+#     ports:
+#       - '8080:8080' 
+#     depends_on:
+#       - db
+
+#   db:
+#     image: postgres
+#     restart: always
+#     ports:
+#       - '5432:5432' 
+#     environment:
+#       POSTGRES_USER: foodtrack
+#       POSTGRES_PASSWORD: food
+#       POSTGRES_DB: foodtrack-db
+
+
 # docker compose up
 version: '3'
 services:
