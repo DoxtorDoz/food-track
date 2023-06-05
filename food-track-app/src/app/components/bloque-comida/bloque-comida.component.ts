@@ -30,6 +30,9 @@ export class BloqueComidaComponent implements OnInit{
     this.backendService.getDias().subscribe((dias: Dia[]) => {
       this.dias = dias;
       this.diaActual = dias[dias.length - 1]; // seleccionamos el último día
+
+      // Aquí puedes poner la lógica para guardar la comida, asegurándote de que diaActual ya ha sido establecido
+      //this.guardarTodasLasComidas();
     });
   }
 
@@ -48,12 +51,12 @@ export class BloqueComidaComponent implements OnInit{
     }
   }
 
-  guardarTodasLasComidas() {
-    this.guardarComida('DESAYUNO');
-    this.guardarComida('COMIDA');
-    this.guardarComida('MERIENDA');
-    this.guardarComida('CENA');
-  }
+  // guardarTodasLasComidas() {
+  //   this.guardarComida('DESAYUNO');
+  //   this.guardarComida('COMIDA');
+  //   this.guardarComida('MERIENDA');
+  //   this.guardarComida('CENA');
+  // }
 
 
   guardarComida(tipoComida: string) {
@@ -62,7 +65,7 @@ export class BloqueComidaComponent implements OnInit{
     const productosDeApi = this.productosSeleccionados;
     const alimentos: Producto[] = productosDeApi.map(productoApi => {
         return {
-            nombre: productoApi.abbreviated_product_name, // O el campo que represente el nombre
+            nombre: productoApi.product_name, // O el campo que represente el nombre
             kcal: productoApi.nutriments.energy_100g,
         };
     });
@@ -109,6 +112,14 @@ export class BloqueComidaComponent implements OnInit{
       totalCalorias,
     };
   }
+
+  eliminarProducto(producto: any) {
+    const index = this.productosSeleccionados.indexOf(producto);
+    if (index > -1) {
+      this.productosSeleccionados.splice(index, 1);
+    }
+  }
+
 
   // actualizarComida(tipoComida: string) {
   //   const comida: Comida = {

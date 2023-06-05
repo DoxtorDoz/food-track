@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from '../../services/backend.service';
+import { Dia, Comida } from '../../models/dia';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dia-detalle',
@@ -8,9 +10,10 @@ import { BackendService } from '../../services/backend.service';
   styleUrls: ['./vista-dia.component.sass']
 })
 export class VistaDiaComponent implements OnInit {
-  dia: any;
-
-
+  dia: Dia | undefined;
+  fecha: Date | undefined;
+  totalKcal: number | undefined;
+  id: number | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,14 +21,27 @@ export class VistaDiaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id !== null) {
-      this.backendService.getDia(id).subscribe((dia: any) => {
-        this.dia = dia;
-      });
+      this.backendService.getDia(+id).subscribe(
+        diaFromApi => {
+          this.id = diaFromApi.id;
+          this.dia = diaFromApi;
+          this.fecha = diaFromApi.fecha;
+          this.totalKcal = diaFromApi.totalCalorias;
+        },
+        error => {
+          console.error(error);
+        }
+      );
     } else {
-      // Maneja el caso en el que id es null
+      console.error('No ID parameter in the URL');
     }
 
+  if (id === null) {
+    // Redireccionar al usuario a otra página, o mostrar un mensaje de error.
+    console.error('ID del día no proporcionado');
+    return;
   }
+}
 }

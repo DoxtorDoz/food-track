@@ -5,7 +5,7 @@
 
 <div *ngIf="tipoComida === 'desayuno'">
   <div class="contenido">
-    <h2>{{tipoComida}}</h2>
+    <h2>{{tipoComida.toUpperCase()}}</h2>
     <div class="bloque">
       <app-buscador-alimentos class="buscador" (productoSeleccionado)="agregarProducto($event)"></app-buscador-alimentos>
       <div class="alimentos">
@@ -20,7 +20,8 @@
                   <div *ngIf="expandedProductId === product.id" class="datos">
                     <p>Calorias: {{ product.nutriments.energy_100g }}</p>
                   </div>
-                  <button (click)="(product)">Eliminar</button>
+                  <button (click)="eliminarProducto(product)">Eliminar</button>
+
                 </div>
               </div>
               </li>
@@ -38,7 +39,7 @@
 
 <div *ngIf="tipoComida === 'comida'">
   <div class="contenido">
-    <h2>{{tipoComida.toUpperCase}}</h2>
+    <h2>{{tipoComida.toUpperCase()}}</h2>
     <div class="bloque">
       <app-buscador-alimentos class="buscador" (productoSeleccionado)="agregarProducto($event)"></app-buscador-alimentos>
       <div class="alimentos">
@@ -73,7 +74,7 @@
 
 <div *ngIf="tipoComida === 'merienda'">
   <div class="contenido">
-    <h2>{{tipoComida.toUpperCase}}</h2>
+    <h2>{{tipoComida.toUpperCase()}}</h2>
     <div class="bloque">
       <app-buscador-alimentos class="buscador" (productoSeleccionado)="agregarProducto($event)"></app-buscador-alimentos>
       <div class="alimentos">

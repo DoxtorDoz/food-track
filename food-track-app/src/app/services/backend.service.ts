@@ -25,13 +25,14 @@ export class BackendService {
   };
 
   constructor(private http: HttpClient) {
-    //this.crearDiaVacio().subscribe();
+    this.crearDiaVacio().subscribe();
     console.log(this.diaActual);
   }
 
-  obtenerTodosLosDias(): Observable<Dia[]> {
-    return this.http.get<Dia[]>(`${this.baseUrl}/dias/todosLosDias`);
-  }
+    // obtenerTodosLosDias(): Observable<Dia[]> {
+    //   return this.http.get<Dia[]>(`${this.baseUrl}/dias/`);
+    //   console.log(this.http.get<Dia[]>(`${this.baseUrl}/dias/todosLosDias`));
+    // }
 
   crearDia(nuevoDia: Dia): Observable<Dia> {
     return this.http.post<Dia>(`${this.baseUrl}/dias/crearDia`, nuevoDia, this.httpOptions);
@@ -75,7 +76,7 @@ getDias(): Observable<any> {
   return this.http.get<any>(`${this.baseUrl}/dias`);
 }
 
-getDia(id: string): Observable<Dia> {
+getDia(id: number): Observable<Dia> {
   return this.http.get<Dia>(`${this.baseUrl}/dias/${id}`);
 }
 

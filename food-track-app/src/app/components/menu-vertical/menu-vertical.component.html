@@ -3,9 +3,8 @@
   <p style="font-weight: bold;">Dias</p>
   <div class="array-dias" >
     <div class="dias-menu" *ngFor="let dia of dias">
-      <span>{{dia.fecha}}</span>
-      <br>
-      <span>{{dia.totalCalorias}}</span>
+      <a [routerLink]="['/dia', dia.id]" style="text-decoration: none; color:black;font-weight: 600;">{{dia.fecha}}
+      </a>
     </div>
   </div>
   <div class="footer">

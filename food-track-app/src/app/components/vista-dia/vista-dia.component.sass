@@ -1,0 +1,66 @@
+.details-container
+  padding: 20px
+  height: 100vh
+  width: 80vw
+  background-color: #f6f8d8
+
+.details-heading
+  color: #3f51b5
+  font-size: 24px
+  margin-bottom: 20px
+
+.details-info
+ // margin-bottom: 40px
+
+.comidas-container
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  overflow: auto
+
+.comida
+  width: 15vw//calc(50% - 10vw)
+  margin-bottom: 20px
+  padding: 10px
+  // border: 1px solid #ccc
+  // border-radius: 5px
+
+  &-heading
+    font-size: 18px
+    margin-bottom: 10px
+
+.alimento-container
+  display: flex
+  flex-direction: column
+  //margin-top: 10px
+
+  .alimento-nombre
+    font-weight: bold
+
+.array-alimentos
+  overflow: auto
+  height: 60vh
+  width: 90%
+  border: 1px solid #93df58
+  align-items: center
+  background-color: #6d8b6f
+
+.even-item
+  transition: 0.5s
+  //border: 2px solid rgb(234, 236, 208)
+  background-color: rgb(234, 236, 208)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(315deg, #FBAB7E 0%, #F7CE68 100%)
+
+.odd-item
+  transition: 0.5s
+  //border: 2px solid rgb(242, 247, 213)
+  background-color: rgb(242, 247, 213)
+
+  &:hover
+    border: 2px solid #c7f4ca
+    background-color: #FBAB7E
+    background-image: linear-gradient(45deg, #FBAB7E 0%, #F7CE68 100%)

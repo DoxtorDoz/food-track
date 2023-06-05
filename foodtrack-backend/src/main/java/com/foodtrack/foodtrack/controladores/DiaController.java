@@ -46,6 +46,9 @@ public class DiaController {
 
     @PostMapping("/crearDia")
     public Dia crearDia(@RequestBody Dia nuevoDia) {
+        if (nuevoDia.getTotalKcal() == null) {
+            nuevoDia.setTotalKcal(0.0); // O algún valor predeterminado
+        }
         return diaRepository.save(nuevoDia);
     }
 
@@ -67,7 +70,15 @@ public class DiaController {
             nuevaComida.setTotalKcal(0.0); // O algún valor predeterminado
         }
 
-        return comidaRepository.save(nuevaComida);
+        Comida comidaGuardada = comidaRepository.save(nuevaComida);
+
+        // Luego, agrega la Comida al Dia, calcula las calorías totales y guarda el Dia
+        dia.setComida(comidaGuardada);
+        dia.calcularTotales();
+        diaRepository.save(dia);
+
+        // Finalmente, devuelve la Comida guardada
+        return comidaGuardada;
     }
 
     @GetMapping("/{diaId}/comidas")
@@ -77,32 +88,4 @@ public class DiaController {
 
         return dia.getComidas();
     }
-
-    // @PutMapping("/{diaId}/actualizarComida/{comidaId}")
-    // public Comida actualizarComida(@PathVariable Long diaId, @PathVariable Long
-    // comidaId,
-    // @RequestBody Comida nuevaComida) {
-    // Dia dia = diaRepository.findById(diaId)
-    // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Día no
-    // encontrado"));
-
-    // Comida comidaExistente = comidaRepository.findById(comidaId)
-    // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Comida
-    // no encontrada"));
-
-    // // Actualizar los campos de la comida existente con los valores de
-    // nuevaComida
-    // // Aquí asumimos que los campos que quieres actualizar están en nuevaComida
-    // comidaExistente.setTipoComida(nuevaComida.getTipoComida());
-    // comidaExistente.setTotalKcal(nuevaComida.getTotalKcal());
-
-    // // Actualizar la lista de productos si necesitas hacerlo
-    // comidaExistente.setAlimentos(nuevaComida.getAlimentos());
-
-    // // Finalmente, guarda la comida existente con los nuevos valores en la base
-    // de
-    // // datos
-    // return comidaRepository.saveAndFlush(comidaExistente);
-    // }
-
 }

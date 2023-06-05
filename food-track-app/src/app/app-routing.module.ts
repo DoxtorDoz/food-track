@@ -8,17 +8,6 @@ import { AppComponent } from './app.component';
 import { VistaDiaComponent } from './components/vista-dia/vista-dia.component';
 
 
-
-// const routes: Routes = [
-//   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
-//   { path: 'main', component: MainComponent },
-//   { path: 'desayuno', component: BloqueComidaComponent },
-//   { path: 'comida', component: BloqueComidaComponent },
-//   { path: 'merienda', component: BloqueComidaComponent },
-//   { path: 'cena', component: BloqueComidaComponent },
-// ];
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige a la ruta principal
   { path: 'main', component: MainComponent },
@@ -31,11 +20,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-
-// @NgModule({
-//   declarations: [],
-//   imports: [
-//     CommonModule
-//   ]
-// })
 export class AppRoutingModule { }

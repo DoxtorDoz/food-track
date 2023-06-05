@@ -10,34 +10,30 @@ import { Dia } from '../../models/dia';
 export class MenuVerticalComponent implements OnInit {
   dias: Dia[] = [];
   diaActual= 0;
+  fecha: Date | undefined;
+  totalKcal: number | undefined;
 
   constructor(private backendService: BackendService) { }
 
   ngOnInit() {
     this.backendService.getDias().subscribe(
-      (diasFromApi) => {
-        this.dias = diasFromApi;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-
-
-    this.backendService.getDias().subscribe(
       (response) => {
-        console.log(response);  // Aquí estás imprimiendo lo que te devuelve el backend
-        this.dias = response._embedded.dias;
+        console.log(response);
+        this.dias = response._embedded.dias.map((dia: any) => {
+          const urlParts = dia._links.self.href.split('/');
+          const id = +urlParts[urlParts.length - 1];  // Convertir a número
+          return {
+            id: id,
+            fecha: dia.fecha,
+            totalCalorias: dia.totalKcal,
+            comidas: dia.comidas
+          };
+        });
       },
       (error) => {
         console.error(error);
       }
     );
-
-    this.backendService.getDias().subscribe((dias: Dia[]) => {
-      this.dias = dias;
-      this.diaActual = dias[dias.length - 1].id; // seleccionamos el último día
-    });
   }
 
   crearDia(): void {
@@ -50,6 +46,4 @@ export class MenuVerticalComponent implements OnInit {
       }
     );
   }
-
-
 }

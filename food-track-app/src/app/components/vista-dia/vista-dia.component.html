@@ -1,1 +1,25 @@
-<p>vista-dia works!</p>
+<div class="details-container">
+  <h2 class="details-heading">Detalles del Día</h2>
+  <div class="details-info">
+    <p>Id: {{dia?.id}}</p>
+    <p>Fecha: {{ dia?.fecha }}</p>
+    <!--p>Total de calorías: {{ dia?.totalCalorias ?? 0 }}</p-->
+    <p>Comidas: {{ dia?.comidas?.length ?? 0 }}</p>
+  </div>
+
+  <div class="comidas-container">
+    <div class="comida" *ngFor="let comida of dia?.comidas">
+      <a class="comida-heading">{{comida.tipoComida}}</a>
+      <p>Calorías: {{comida.totalKcal}}</p>
+      <!--p>Alimentos:</p-->
+      <div class="array-alimentos">
+        <div class="alimento-container" *ngFor="let alimento of comida.alimentos; let even = even; let odd = odd">
+          <div class="alimento-nombre" [ngClass]="{ 'even-item': even, 'odd-item': odd }">
+            <p>{{alimento.nombre}}</p>
+            <p>{{alimento.kcal}} kcal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

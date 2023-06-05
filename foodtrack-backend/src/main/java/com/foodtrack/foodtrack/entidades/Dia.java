@@ -67,7 +67,6 @@ public class Dia {
         this.comidas = comidas;
     }
 
-    @PrePersist
     public void calcularTotales() {
         double totalKcal = 0.0;
 
